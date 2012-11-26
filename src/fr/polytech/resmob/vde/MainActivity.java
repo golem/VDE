@@ -6,10 +6,14 @@ import android.view.Menu;
 
 public class MainActivity extends Activity {
 
+	HttpHandler httpHandler;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		httpHandler = new HttpHandler(new String(R.string.url_server + ""));
 	}
 
 	@Override
