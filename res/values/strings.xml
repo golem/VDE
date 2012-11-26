@@ -8,5 +8,8 @@
     <string name="text_title">VDE</string>
     <string name="list_text">Lister les posts</string>
     <string name="post_text">Créer un nouveau post</string>
+    <string name="post_titre">Titre</string>
+    <string name="post_auteur">Auteur</string>
+    <string name="post_soumettre">Soumettre</string>
 
 </resources>
