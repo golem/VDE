@@ -24,13 +24,13 @@ public class HttpHandler {
 	 * nombre de likes en paramètre, si on envoie 0 on récupère les plus aimés,
 	 * si on envoie un nombre de like on récupère les plus aimés en dessous
 	 * de ce nombre de like, de plus on ne récupère pas les ids en paramètre */
-	public void query(int likes, int number, int[] ids) {
+	public void query(int likes, int number, int pageNumber) {
 		
 	}
 	
 	/* Requête pour récupérer le nombre de posts les plus récents jusqu'à
 	 * de la date en paramètre, de plus on ne récupère pas les ids en paramètre */
-	public void query(Date fromDate, int number, int[] ids) {
+	public void query(Date fromDate, int number, int pageNumber) {
 		
 	}
 	
