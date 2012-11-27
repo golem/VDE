@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
 		
 		context = this;
 		
-		httpHandler = new HttpHandler(new String(R.string.url_server + ""));
+		httpHandler = new HttpHandler(new String(R.string.url_server + "/~frefre∕test.php"));
 		
 		postButton = (Button) findViewById(R.id.buttonPost);
 		postButton.setOnClickListener(new OnClickListener() {
