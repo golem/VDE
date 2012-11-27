@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
 		
 		context = this;
 		
-		httpHandler = new HttpHandler(new String(R.string.url_server_default + ""));
+		httpHandler = new HttpHandler(new String(R.string.url_server_default + "/~frefre∕test.php"));
 		
 		postButton = (Button) findViewById(R.id.buttonPost);
 		postButton.setOnClickListener(new OnClickListener() {
@@ -39,6 +39,8 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				// Lancement de l'activité "envoi d'article"
 				Intent postIntent = new Intent(context, PostActivity.class);
+				
+				//postIntent.putExtra("httpHandler", httpHandler);
 				startActivity(postIntent);
 			}
 			

@@ -1,13 +1,27 @@
 package fr.polytech.resmob.vde;
 
+import java.io.IOException;
+import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 
-public class HttpHandler {
+public class HttpHandler implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private HttpClient httpclient;
 	private HttpPost httppost;
 	
@@ -37,5 +51,26 @@ public class HttpHandler {
 	/* Requête pour récupérer un certain nombre de posts aléatoirement */
 	public void query(int number) {
 		
+	}
+	
+	public void insert(String title, String author, String content) {
+		
+		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+		nameValuePairs.add(new BasicNameValuePair("id", "insert"));
+        nameValuePairs.add(new BasicNameValuePair("title", title));
+        nameValuePairs.add(new BasicNameValuePair("author", author));
+        nameValuePairs.add(new BasicNameValuePair("content", content));
+        try {
+			httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+			httpclient.execute(httppost);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
