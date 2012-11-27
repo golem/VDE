@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">VDE</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="url_server">192.168.1.2</string>
+    <string name="text_title">VDE</string>
+    <string name="list_text">Lister les posts</string>
+    <string name="post_text">Créer un nouveau post</string>
+    <string name="post_titre">Titre</string>
+    <string name="post_auteur">Auteur</string>
+    <string name="post_soumettre">Soumettre</string>
+
+</resources>
