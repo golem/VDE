@@ -1,13 +1,11 @@
 package fr.polytech.resmob.vde;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -16,17 +14,12 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
-public class HttpHandler implements Serializable {
+public class HttpHandler {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private HttpClient httpclient;
 	private HttpPost httppost;
 	
 	public HttpHandler(String url) {
-		
 		this.httpclient = new DefaultHttpClient();
 		this.httppost = new HttpPost(url);
 	}

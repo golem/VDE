@@ -19,9 +19,8 @@ public class PostActivity extends Activity {
 		
 		context = this;
 		
-		/* Bundle b = getIntent().getExtras();
-		 httpHandler = (HttpHandler) b.getSerializable("httpHandler"); */
-		httpHandler = new HttpHandler(new String("http://192.168.1.2/~frefre∕test.php"));
+		 httpHandler = new HttpHandler("test");
+		// httpHandler = new HttpHandler(new String("http://192.168.1.2/~frefre∕test.php"));
 		
 		submitButton = (Button) findViewById(R.id.buttonSoumettre);
 		submitButton.setOnClickListener(new OnClickListener() {
