@@ -32,6 +32,8 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				// Lancement de l'activité "envoi d'article"
 				Intent postIntent = new Intent(context, PostActivity.class);
+				
+				//postIntent.putExtra("httpHandler", httpHandler);
 				startActivity(postIntent);
 			}
 			
