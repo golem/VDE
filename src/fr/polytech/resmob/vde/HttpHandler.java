@@ -10,6 +10,7 @@ public class HttpHandler {
 		sendRequest = new SendRequest();
 	}
 	
+	/* Ceci est un commentaire pour faire un test */
 	public void sendRequest(JSONObject post) {
 		sendRequest.execute(post);
 	}
