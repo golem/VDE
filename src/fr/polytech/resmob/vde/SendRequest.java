@@ -15,9 +15,11 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 public class SendRequest extends AsyncTask<JSONObject, Integer, String> {
 
@@ -31,11 +33,20 @@ public class SendRequest extends AsyncTask<JSONObject, Integer, String> {
 		//this.answer = new String();
 		this.dataHandler = dataHandler;
 		this.httpclient = new DefaultHttpClient();
-		this.httppost = new HttpPost("http://192.168.1.2/~frefre/test.php");
+		//this.httppost = new HttpPost("http://86.198.34.101/~frefre/test.php");
 	}
 
 	@Override
 	protected String doInBackground(JSONObject... params) {
+		String server_url = "";
+		try {
+			server_url = "http://" + params[0].getString("domain") + "/~frefre/test.php";
+			params[0].remove("domain");
+		} catch (JSONException e) {
+			Log.e(e.getClass().getName(), e.getMessage(), e);
+		}
+		
+		this.httppost = new HttpPost(server_url);
 		
 		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
 		nameValuePairs.add(new BasicNameValuePair("request", params[0].toString()));
