@@ -1,7 +1,5 @@
 package fr.polytech.resmob.vde;
 
-import org.apache.http.client.methods.HttpPost;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -32,8 +30,6 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		context = this;
-		
-		httpHandler = new HttpHandler(new String(R.string.url_server_default + "/~frefre∕test.php"));
 		
 		postButton = (Button) findViewById(R.id.buttonPost);
 		postButton.setOnClickListener(new OnClickListener() {

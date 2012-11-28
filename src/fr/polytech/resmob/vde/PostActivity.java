@@ -1,5 +1,8 @@
 package fr.polytech.resmob.vde;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +11,7 @@ import android.widget.Button;
 
 public class PostActivity extends Activity {
 	
-	private Activity context;
+	// private Activity context;
 	private Button submitButton;
 	private HttpHandler httpHandler;
 	
@@ -17,17 +20,23 @@ public class PostActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.post_layout);
 		
-		context = this;
+		// context = this;
 		
-		 httpHandler = new HttpHandler("test");
-		// httpHandler = new HttpHandler(new String("http://192.168.1.2/~frefre∕test.php"));
+		httpHandler = new HttpHandler();
 		
 		submitButton = (Button) findViewById(R.id.buttonSoumettre);
 		submitButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// Envoi d'une requête d'ajout d'un post
-				httpHandler.insert("test", "null", "j'ai essayé");
+				
+				try {
+					JSONObject j = new JSONObject("{\"id\":\"insert\",\"title\":\"test\",\"content\":\"je suis un post de test\"}");
+					httpHandler.sendRequest(j);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}		
 		});
 	}
