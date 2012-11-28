@@ -8,10 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class PostActivity extends Activity {
 	
-	// private Activity context;
+	private Activity context;
 	private Button submitButton;
 	private HttpHandler httpHandler;
 	
@@ -20,9 +21,9 @@ public class PostActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.post_layout);
 		
-		// context = this;
+		context = this;
 		
-		httpHandler = new HttpHandler();
+		httpHandler = new HttpHandler(context);
 		
 		submitButton = (Button) findViewById(R.id.buttonSoumettre);
 		submitButton.setOnClickListener(new OnClickListener() {
@@ -37,6 +38,10 @@ public class PostActivity extends Activity {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				/*while(httpHandler.getS().equals(new String("test"))) {
+					
+				}*/
+				
 			}		
 		});
 	}
