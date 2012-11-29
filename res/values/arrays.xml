@@ -6,6 +6,7 @@
         <item >Emulateur</item>
     </string-array>
     <string-array name="url_server_values">
+        <item >134.157.246.230</item>
         <item >86.198.34.101</item>
         <item >192.168.1.2</item>
         <item >10.0.0.2</item>

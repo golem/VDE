@@ -6,7 +6,7 @@
     <string name="act_pref_name">VDE - Préférences</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="url_server_default">192.168.1.2</string>
+    <string name="url_server_default">192.168.43.55</string>
     <string name="text_title">VDE</string>
     <string name="list_text">Lister les posts</string>
     <string name="post_text">Créer un nouveau post</string>
