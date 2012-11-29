@@ -13,5 +13,6 @@
     <string name="post_auteur">Auteur</string>
     <string name="post_soumettre">Soumettre</string>
     <string name="text_pref">Options</string>
+    <string name="post_content">Contenu</string>
 
 </resources>
