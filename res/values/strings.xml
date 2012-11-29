@@ -15,5 +15,11 @@
     <string name="post_soumettre">Soumettre</string>
     <string name="text_pref">Options</string>
     <string name="post_content">Contenu</string>
+    <string name="quote">&quot;Vous avez signé pour souffrir, vous allez souffrir !&quot;</string>
+    <string name="author">A.A</string>
+    <color name="backgroundColor">#ffefac</color>
+    <color name="button_color">#ff7f2a</color>
+    <color name="button_text_color">#ffeeaa</color>
+    <string name="logoDesc">Logo de l \'application</string>
 
 </resources>
