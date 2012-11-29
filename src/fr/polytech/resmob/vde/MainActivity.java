@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -46,7 +47,7 @@ public class MainActivity extends Activity {
 		prefButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// Lancement de l'activité "envoi d'article"
+				// Lancement de l'activité "Préférences"
 				Intent prefIntent = new Intent(context, PreferencesActivity.class);
 				startActivity(prefIntent);
 			}
@@ -75,5 +76,16 @@ public class MainActivity extends Activity {
 	private void getPrefs() {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 		url_server = prefs.getString("serverPref", getResources().getString(R.string.url_server_default));
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_settings:
+			// Lancement de l'activité "Préférences"
+			Intent prefIntent = new Intent(context, PreferencesActivity.class);
+			startActivity(prefIntent);
+		}
+		return super.onOptionsItemSelected(item);
 	}
 }

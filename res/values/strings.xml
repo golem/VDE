@@ -4,8 +4,7 @@
     <string name="app_name">VDE</string>
     <string name="act_post_name">VDE - Nouvel article</string>
     <string name="act_pref_name">VDE - Préférences</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="menu_settings">Settings</string>
+    <string name="menu_settings">Options</string>
     <string name="url_server_default">192.168.1.2</string>
     <string name="text_title">VDE</string>
     <string name="list_text">Lister les posts</string>
