@@ -23,13 +23,18 @@ public class TabListActivity extends TabActivity {
 		setContentView(R.layout.activity_list);
 		context = this;
 		
-		Intent intent = new Intent(this, OneTabActivity.class);
+		Intent intentRecents = new Intent(this, OneTabActivity.class);
+		intentRecents.putExtra("type", "recents");
+		Intent intentTop = new Intent(this, OneTabActivity.class);
+		intentTop.putExtra("type", "top");
+		Intent intentRandom = new Intent(this, OneTabActivity.class);
+		intentRandom.putExtra("type", "random");
 		tabHost = getTabHost();
-		tabSpec = tabHost.newTabSpec("first").setIndicator("Récents").setContent(intent);
+		tabSpec = tabHost.newTabSpec("first").setIndicator("Récents").setContent(intentRecents);
 		tabHost.addTab(tabSpec);
-		tabSpec = tabHost.newTabSpec("second").setIndicator("Top").setContent(intent);
+		tabSpec = tabHost.newTabSpec("second").setIndicator("Top").setContent(intentTop);
 		tabHost.addTab(tabSpec);
-		tabSpec = tabHost.newTabSpec("third").setIndicator("Aléatoires").setContent(intent);
+		tabSpec = tabHost.newTabSpec("third").setIndicator("Aléatoires").setContent(intentRandom);
 		tabHost.addTab(tabSpec);
 	}
 }
