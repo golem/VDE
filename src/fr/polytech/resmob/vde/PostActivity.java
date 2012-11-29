@@ -37,8 +37,6 @@ public class PostActivity extends Activity {
 				Toast.makeText(context, s, Toast.LENGTH_LONG).show();
 			}	
 		};
-		
-		sendRequest = new SendRequest(dataHandler);
 				
 		getPrefs();
 		
@@ -67,7 +65,9 @@ public class PostActivity extends Activity {
 					Log.e(e.getClass().getName(), e.getMessage(), e);
 				}
 				// Envoi d'une requête d'ajout d'un post
-				sendRequest.execute(article);			
+				// Il faut re-créer une AsyncTask à chaque fois, a priori...
+				sendRequest = new SendRequest(dataHandler);
+				sendRequest.execute(article);
 			}		
 		});
 	}

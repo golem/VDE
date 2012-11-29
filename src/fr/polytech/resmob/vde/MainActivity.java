@@ -16,8 +16,6 @@ public class MainActivity extends Activity {
 
 	private Activity context;
 	
-	HttpHandler httpHandler;
-	
 	// Bouton utilisé pour lancer l'activité d'envoi de nouvel article
 	private Button postButton;
 	private Button prefButton;
