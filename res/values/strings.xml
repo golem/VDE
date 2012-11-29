@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">VDE</string>
+    <string name="act_tablist_name">VDE - Liste des articles</string>
     <string name="act_post_name">VDE - Nouvel article</string>
     <string name="act_pref_name">VDE - Préférences</string>
     <string name="menu_settings">Options</string>

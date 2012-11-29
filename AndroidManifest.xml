@@ -23,6 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".TabListActivity" android:label="@string/act_tablist_name"></activity>
+        <activity android:name=".OneTabActivity" android:label="@string/act_tablist_name"></activity>
         <activity android:name=".PostActivity" android:label="@string/act_post_name"></activity>
         <activity android:name=".PreferencesActivity" android:label="@string/act_pref_name"></activity>
     </application>

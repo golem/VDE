@@ -16,9 +16,8 @@ public class MainActivity extends Activity {
 
 	private Activity context;
 	
-	HttpHandler httpHandler;
-	
 	// Bouton utilisé pour lancer l'activité d'envoi de nouvel article
+	private Button listButton;
 	private Button postButton;
 	private Button prefButton;
 	
@@ -31,6 +30,17 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		context = this;
+		
+		listButton = (Button) findViewById(R.id.buttonList);
+		listButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// Lancement de l'activité "envoi d'article"
+				Intent listIntent = new Intent(context, TabListActivity.class);
+				startActivity(listIntent);
+			}
+			
+		});
 		
 		postButton = (Button) findViewById(R.id.buttonPost);
 		postButton.setOnClickListener(new OnClickListener() {
