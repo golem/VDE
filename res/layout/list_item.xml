@@ -5,7 +5,6 @@
     android:orientation="horizontal"
     android:padding="5dip" >
  
-    <!-- Title Of Song-->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
@@ -16,7 +15,6 @@
         android:textSize="15sp"
         android:textStyle="bold"/>
  
-    <!-- Artist Name -->
     <TextView
         android:id="@+id/tvContent"
         android:layout_width="fill_parent"
@@ -27,7 +25,6 @@
         android:layout_marginTop="1dip"
         android:text="Article ..." />
  
-    <!-- Rightend Duration -->
     <TextView
         android:id="@+id/tvLikes"
         android:layout_width="wrap_content"
