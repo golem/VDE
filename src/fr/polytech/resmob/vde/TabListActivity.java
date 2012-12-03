@@ -24,11 +24,11 @@ public class TabListActivity extends TabActivity {
 		context = this;
 		
 		Intent intentRecents = new Intent(this, OneTabActivity.class);
-		intentRecents.putExtra("type", "date");
+		intentRecents.putExtra("id", "date");
 		Intent intentTop = new Intent(this, OneTabActivity.class);
-		intentTop.putExtra("type", "top");
+		intentTop.putExtra("id", "top");
 		Intent intentRandom = new Intent(this, OneTabActivity.class);
-		intentRandom.putExtra("type", "random");
+		intentRandom.putExtra("id", "random");
 		tabHost = getTabHost();
 		tabSpec = tabHost.newTabSpec("first").setIndicator("Récents").setContent(intentRecents);
 		tabHost.addTab(tabSpec);
