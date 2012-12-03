@@ -24,7 +24,7 @@ public class TabListActivity extends TabActivity {
 		context = this;
 		
 		Intent intentRecents = new Intent(this, OneTabActivity.class);
-		intentRecents.putExtra("type", "recents");
+		intentRecents.putExtra("type", "date");
 		Intent intentTop = new Intent(this, OneTabActivity.class);
 		intentTop.putExtra("type", "top");
 		Intent intentRandom = new Intent(this, OneTabActivity.class);
