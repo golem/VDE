@@ -27,7 +27,9 @@ public class OneTabActivity extends Activity {
 	private ListView mlistView;
 	private int page;
 	private DataHandler dataHandler;
+	private DataHandler dataHandlerLike;
 	private String server_domain;
+	private JSONArray posts;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,15 +40,24 @@ public class OneTabActivity extends Activity {
 		this.mlistView = (ListView) findViewById(R.id.listViewPosts);
 		this.page = 0;
 		// On pourra paramétriser le comportement de l'activité en fonction de l'extra "type"
-		Toast.makeText(this, getIntent().getStringExtra("type"), Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, getIntent().getStringExtra("type"), Toast.LENGTH_SHORT).show();
 		
 		/* DataHandler pour la requête Http */ 
 		this.dataHandler = new DataHandler() {
 			// On met à jour la liste des posts avec le retour de la requête http
 			@Override
 			public void onDataSuccess(String s) {
-				remplirListPosts(s);
+				remplirListPosts(s, false);
 				// Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+			}
+		};
+		
+		/* DataHandler pour la requête Http */ 
+		this.dataHandlerLike = new DataHandler() {
+			// On met à jour la liste des posts avec le retour de la requête http
+			@Override
+			public void onDataSuccess(String s) {
+				Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
 			}
 		};
 		
@@ -54,8 +65,28 @@ public class OneTabActivity extends Activity {
 		this.mlistView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-			    // When clicked, show a toast with the TextView text
-			    Toast.makeText(getApplicationContext(), "" + position,Toast.LENGTH_SHORT).show();
+				//JSONObject post = posts.getJSONObject(position);
+				try {
+					if(posts.getJSONObject(position).getString("liked").toString() != "liked") {
+						
+						posts.getJSONObject(position).put("liked", "liked");
+						posts.getJSONObject(position).put("likes", posts.getJSONObject(position).getInt("likes") + 1);
+						
+						JSONObject req = new JSONObject();
+						req.put("domain", server_domain);
+						req.put("id", "like");
+						req.put("id_elem", posts.getJSONObject(position).getString("id"));
+						SendRequest sendReq = new SendRequest(dataHandlerLike);
+						sendReq.execute(req);
+						remplirListPosts(posts.toString(), true);
+					}
+					else {
+						Toast.makeText(getApplicationContext(), "Likes multiples impossibles", Toast.LENGTH_SHORT).show();
+					}
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}	
 			}
 		});
 		
@@ -98,20 +129,23 @@ public class OneTabActivity extends Activity {
 	
 	// Remplit la ListView avec des données provenant d'une chaîne représentant un
 	// JSONArray
-	private void remplirListPosts(String contenu) {
+	private void remplirListPosts(String contenu, boolean liked) {
 		if (contenu == null) return;
 		
 		ArrayList<HashMap<String, String>> itemList = new ArrayList<HashMap<String, String>>();
-		JSONArray posts;
 		JSONObject post;
 		HashMap<String, String> item;
 		
 		try {
 			// Parse la chaîne en tant que tableau JSON
-			posts = new JSONArray(contenu);
-			
+			if(liked == false)
+				posts = new JSONArray(contenu);
+			int length = posts.length();
 			// Itérations sur tous les posts pour les ajouter à la liste
-			for (int i = 0; i < posts.length(); ++i) {
+			for (int i = 0; i < length; ++i) {
+				if(liked == false)
+					posts.getJSONObject(i).put("liked", "no");
+					
 				post = posts.getJSONObject(i);
 				item = new HashMap<String, String>();
 				item.put("title", post.getString("title"));
