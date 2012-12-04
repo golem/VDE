@@ -1,17 +1,24 @@
 package fr.polytech.resmob.vde;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+import fr.polytech.resmob.vde.SendRequest.DataHandler;
 
 public class MainActivity extends Activity {
 
@@ -24,6 +31,9 @@ public class MainActivity extends Activity {
 	
 	// Préférences
 	private String url_server;
+	
+	// DataHandler
+	private DataHandler dataHandler;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +75,24 @@ public class MainActivity extends Activity {
 			}
 			
 		});
+		
+		/* DataHandler pour la requête Http */ 
+		this.dataHandler = new DataHandler() {
+			// On met à jour la liste des posts avec le retour de la requête http
+			@Override
+			public void onDataSuccess(String s) {
+				TextView tv = (TextView) findViewById(R.id.tvLastPost);				
+				JSONArray posts;
+				try {
+					posts = new JSONArray(s);
+					tv.setText(posts.getJSONObject(0).getString("content"));
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+			}
+		};
+		
+		
 	}
 
 	@Override
@@ -74,6 +102,7 @@ public class MainActivity extends Activity {
 		// soit pris en compte quand on revient de l'activité préférences.
 		getPrefs();
 		Toast.makeText(context, "URL serveur = " + url_server, Toast.LENGTH_SHORT).show();
+		this.requete();
 	}
 	
 	@Override
@@ -99,5 +128,22 @@ public class MainActivity extends Activity {
 			startActivity(prefIntent);
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	private void requete() {
+		// Création de la requête
+		JSONObject req;
+		req = new JSONObject();
+		try {
+			req.put("domain", url_server);
+			req.put("id", "date");
+			req.put("page", 0);
+		} catch (JSONException e) {
+			Log.e(e.getClass().getName(), e.getMessage(), e);
+		}
+		
+		// Envoi de la requête
+		SendRequest sendReq = new SendRequest(dataHandler);
+		sendReq.execute(req);
 	}
 }
