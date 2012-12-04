@@ -70,6 +70,16 @@ public class OneTabActivity extends Activity {
 		// (ou alors on fait une seule requête à la création, puis on met un bouton refresh)
 		super.onResume();
 		
+		this.requete();
+		
+//		++page;
+//		Toast.makeText(this, ""+page, Toast.LENGTH_SHORT).show();
+//		remplirListPosts("");
+	}
+	
+	// Envoi de la requête, dont le retour remplira automatiquement la ListView
+	// Utilise les attributs : page, dataHandler, server_domain
+	private void requete() {
 		// Création de la requête
 		JSONObject req;
 		req = new JSONObject();
@@ -81,16 +91,13 @@ public class OneTabActivity extends Activity {
 			Log.e(e.getClass().getName(), e.getMessage(), e);
 		}
 		
+		// Envoi de la requête
 		SendRequest sendReq = new SendRequest(dataHandler);
 		sendReq.execute(req);
-		
-//		++page;
-//		Toast.makeText(this, ""+page, Toast.LENGTH_SHORT).show();
-//		remplirListPosts("");
 	}
 	
-	// Remplit la ListView avec des données arbitraire... Pourra prendre un JSONArray
-	//ou une chaine en représentant un. 
+	// Remplit la ListView avec des données provenant d'une chaîne représentant un
+	// JSONArray
 	private void remplirListPosts(String contenu) {
 		if (contenu == null) return;
 		
