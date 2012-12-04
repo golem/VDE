@@ -12,9 +12,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 import fr.polytech.resmob.vde.SendRequest.DataHandler;
 
@@ -42,9 +46,18 @@ public class OneTabActivity extends Activity {
 			@Override
 			public void onDataSuccess(String s) {
 				remplirListPosts(s);
-//				Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+				// Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
 			}
 		};
+		
+		
+		this.mlistView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+			    // When clicked, show a toast with the TextView text
+			    Toast.makeText(getApplicationContext(), "" + position,Toast.LENGTH_SHORT).show();
+			}
+		});
 		
 		// Récupération des préférences
 		getPrefs();
