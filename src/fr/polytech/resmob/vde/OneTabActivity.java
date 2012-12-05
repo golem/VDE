@@ -189,6 +189,7 @@ public class OneTabActivity extends Activity {
 				item.put("title", post.getString("title"));
 				item.put("content", post.getString("content"));
 				item.put("likes", post.getString("likes"));
+				item.put("date", post.getString("date"));
 				itemList.add(item);
 			}
 		} catch (JSONException e) {
@@ -196,8 +197,8 @@ public class OneTabActivity extends Activity {
 		}
 		
 		ListAdapter adapter = new SimpleAdapter(this, itemList, R.layout.list_item,
-				new String[] { "title", "content", "likes" }, new int[] {
-                R.id.tvTitle, R.id.tvContent, R.id.tvLikes });
+				new String[] { "title", "content", "likes", "date" }, new int[] {
+                R.id.tvTitle, R.id.tvContent, R.id.tvNbLikes, R.id.tvDate });
 		
 		mlistView.setAdapter(adapter);
 	}

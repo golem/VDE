@@ -16,26 +16,60 @@
         android:textStyle="bold"/>
  
     <TextView
-        android:id="@+id/tvContent"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvTitle"
-        android:textColor="#343434"
-        android:textSize="10sp"
-        android:layout_marginTop="1dip"
-        android:text="Article ..." />
- 
-    <TextView
-        android:id="@+id/tvLikes"
+        android:id="@+id/tvNbLikes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@id/tvTitle"
-        android:gravity="right"
-        android:text="Likes :"
         android:layout_marginRight="5dip"
-        android:textSize="10sp"
+        android:gravity="right"
+        android:text="0"
         android:textColor="#10bcc9"
-        android:textStyle="bold"/>
+        android:textSize="10sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvLikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvLikes"
+        android:layout_alignBottom="@+id/tvLikes"
+        android:layout_toLeftOf="@+id/tvNbLikes"
+        android:gravity="right"
+        android:text="@string/like_text"
+        android:textColor="#10bcc9"
+        android:textSize="10sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvDate"
+        android:text="Article ..."
+        android:textColor="#343434"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_toRightOf="@+id/tvPosted"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvTitle"
+        android:text="Date ..."
+        android:textColor="#343434"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/tvPosted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvTitle"
+        android:text="@string/list_posted"
+        android:textColor="#343434"
+        android:textSize="10sp" />
  
 </RelativeLayout>
