@@ -13,11 +13,14 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 import fr.polytech.resmob.vde.SendRequest.DataHandler;
 
@@ -29,6 +32,9 @@ public class OneTabActivity extends Activity {
 	private DataHandler dataHandlerLike;
 	private String server_domain;
 	private JSONArray posts;
+	private Button prevButton;
+	private Button nextButton;
+	private TextView pageTv;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +43,6 @@ public class OneTabActivity extends Activity {
 		
 		// Récupération d'une référence sur la ListView
 		this.mlistView = (ListView) findViewById(R.id.listViewPosts);
-		this.page = 0;
 		// On pourra paramétriser le comportement de l'activité en fonction de l'extra "type"
 		//Toast.makeText(this, getIntent().getStringExtra("type"), Toast.LENGTH_SHORT).show();
 		
@@ -86,6 +91,40 @@ public class OneTabActivity extends Activity {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}	
+			}
+		});
+		
+		
+		// Ajout des callbacks sur les boutons
+		this.prevButton = (Button) findViewById(R.id.buttonPrev);
+		this.nextButton = (Button) findViewById(R.id.buttonNext);
+		this.pageTv = (TextView) findViewById(R.id.textViewNbPage);
+		
+		this.page = 0;
+		this.prevButton.setEnabled(false);
+		pageTv.setText("Page : " + page);
+		
+		this.prevButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				--page;
+				requete();
+				// Si on est à la première page, on désactive le bouton "précédent"
+				if (page == 0) {
+					prevButton.setEnabled(false);
+				}
+				pageTv.setText("Page : " + page);
+			}
+		});
+		
+		this.nextButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				++page;
+				requete();
+				// Il faudrait faire quelque chose pour se rendre compte qu'on est à la dernière page...
+				prevButton.setEnabled(true);
+				pageTv.setText("Page : " + page);
 			}
 		});
 		

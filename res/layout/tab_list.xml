@@ -43,7 +43,7 @@
             android:layout_alignBaseline="@+id/buttonPrev"
             android:layout_alignBottom="@+id/buttonPrev"
             android:layout_centerHorizontal="true"
-            android:text="toto" />
+            android:text="" />
 
     </RelativeLayout>
 
