@@ -113,6 +113,7 @@ public class OneTabActivity extends Activity {
 				if (page == 0) {
 					prevButton.setEnabled(false);
 				}
+				nextButton.setEnabled(true);
 				pageTv.setText("Page : " + page);
 			}
 		});
@@ -123,6 +124,9 @@ public class OneTabActivity extends Activity {
 				++page;
 				requete();
 				// Il faudrait faire quelque chose pour se rendre compte qu'on est à la dernière page...
+				if (posts.length() == 0) {
+					nextButton.setEnabled(false);
+				}
 				prevButton.setEnabled(true);
 				pageTv.setText("Page : " + page);
 			}
