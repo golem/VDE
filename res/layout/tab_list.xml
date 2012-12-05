@@ -7,12 +7,44 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="10dip" >
-    
+
     <ListView
         android:id="@+id/listViewPosts"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
-
+        android:layout_height="0dip"
+        android:layout_weight="1" >
     </ListView>
-	
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/buttonPrev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/list_prev" />
+
+        <Button
+            android:id="@+id/buttonNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/list_next" />
+
+        <TextView
+            android:id="@+id/textViewNbPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/buttonPrev"
+            android:layout_alignBottom="@+id/buttonPrev"
+            android:layout_centerHorizontal="true"
+            android:text="toto" />
+
+    </RelativeLayout>
+
 </LinearLayout>

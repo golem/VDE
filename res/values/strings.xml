@@ -21,5 +21,7 @@
     <color name="button_color">#ff7f2a</color>
     <color name="button_text_color">#ffeeaa</color>
     <string name="logoDesc">Logo de l \'application</string>
+    <string name="list_prev">&lt;&lt;</string>
+    <string name="list_next">>></string>
 
 </resources>
