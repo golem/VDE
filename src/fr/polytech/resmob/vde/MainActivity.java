@@ -143,7 +143,7 @@ public class MainActivity extends Activity {
 		}
 		
 		// Envoi de la requête
-		SendRequest sendReq = new SendRequest(dataHandler);
+		SendRequest sendReq = new SendRequest(dataHandler, context);
 		sendReq.execute(req);
 	}
 }

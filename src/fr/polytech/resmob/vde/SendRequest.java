@@ -18,6 +18,8 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -29,11 +31,18 @@ public class SendRequest extends AsyncTask<JSONObject, Integer, String> {
 	DataHandler dataHandler;
 	private String s;
 	
-	public SendRequest(DataHandler dataHandler) {
+	private final ProgressDialog dialog;
+	
+	public SendRequest(DataHandler dataHandler, Activity context) {
 		//this.answer = new String();
 		this.dataHandler = dataHandler;
 		this.httpclient = new DefaultHttpClient();
 		//this.httppost = new HttpPost("http://86.198.34.101/~frefre/test.php");
+		this.dialog = new ProgressDialog(context);
+		// TODO: On pourrait passer ce message en argument par exemple...
+		// (et aussi un booléen pour dire si on veut le progressdialog tout court)
+		this.dialog.setMessage("Requête en cours...");
+		this.dialog.show();
 	}
 
 	@Override
@@ -80,6 +89,7 @@ public class SendRequest extends AsyncTask<JSONObject, Integer, String> {
 	@Override
     protected void onPostExecute(String s) {
 		dataHandler.onDataSuccess(s);
+		this.dialog.dismiss();
     }
 	
 	public static interface DataHandler {

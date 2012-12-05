@@ -68,7 +68,7 @@ public class PostActivity extends Activity {
 				}
 				// Envoi d'une requête d'ajout d'un post
 				// Il faut re-créer une AsyncTask à chaque fois, a priori...
-				sendRequest = new SendRequest(dataHandler);
+				sendRequest = new SendRequest(dataHandler, context);
 				sendRequest.execute(article);
 			}		
 		});

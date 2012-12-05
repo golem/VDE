@@ -35,11 +35,14 @@ public class OneTabActivity extends Activity {
 	private Button prevButton;
 	private Button nextButton;
 	private TextView pageTv;
+	private Activity context;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tab_list);
+		
+		this.context = this;
 		
 		// Récupération d'une référence sur la ListView
 		this.mlistView = (ListView) findViewById(R.id.listViewPosts);
@@ -80,7 +83,7 @@ public class OneTabActivity extends Activity {
 						req.put("domain", server_domain);
 						req.put("id", "like");
 						req.put("id_elem", posts.getJSONObject(position).getString("id"));
-						SendRequest sendReq = new SendRequest(dataHandlerLike);
+						SendRequest sendReq = new SendRequest(dataHandlerLike, context);
 						sendReq.execute(req);
 						remplirListPosts(posts.toString(), true);
 					}
@@ -165,7 +168,7 @@ public class OneTabActivity extends Activity {
 		}
 		
 		// Envoi de la requête
-		SendRequest sendReq = new SendRequest(dataHandler);
+		SendRequest sendReq = new SendRequest(dataHandler, context);
 		sendReq.execute(req);
 	}
 	
