@@ -85,7 +85,7 @@ public class MainActivity extends Activity {
 				JSONArray posts;
 				try {
 					posts = new JSONArray(s);
-					tv.setText(posts.getJSONObject(0).getString("content"));
+					tv.setText("\"" + posts.getJSONObject(0).getString("content") + "\"");
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
