@@ -23,6 +23,7 @@ public class PostActivity extends Activity {
 	private SendRequest sendRequest;
 	private DataHandler dataHandler;
 	private String server_domain;
+	private boolean show_dialogs;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +69,7 @@ public class PostActivity extends Activity {
 				}
 				// Envoi d'une requête d'ajout d'un post
 				// Il faut re-créer une AsyncTask à chaque fois, a priori...
-				sendRequest = new SendRequest(dataHandler, context, true);
+				sendRequest = new SendRequest(dataHandler, context, show_dialogs);
 				sendRequest.execute(article);
 			}		
 		});
@@ -78,5 +79,6 @@ public class PostActivity extends Activity {
 	private void getPrefs() {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 		this.server_domain = prefs.getString("serverPref", getResources().getString(R.string.url_server_default));
+		this.show_dialogs = prefs.getBoolean("progressPref", getResources().getBoolean(R.bool.show_dialog_default));
 	}
 }
