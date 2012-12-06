@@ -31,6 +31,7 @@ public class OneTabActivity extends Activity {
 	private DataHandler dataHandler;
 	private DataHandler dataHandlerLike;
 	private String server_domain;
+	private boolean show_dialogs;
 	private JSONArray posts;
 	private Button prevButton;
 	private Button nextButton;
@@ -41,6 +42,8 @@ public class OneTabActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tab_list);
+		
+		this.posts = new JSONArray();
 		
 		this.context = this;
 		
@@ -83,7 +86,7 @@ public class OneTabActivity extends Activity {
 						req.put("domain", server_domain);
 						req.put("id", "like");
 						req.put("id_elem", posts.getJSONObject(position).getString("id"));
-						SendRequest sendReq = new SendRequest(dataHandlerLike, context);
+						SendRequest sendReq = new SendRequest(dataHandlerLike, context, show_dialogs);
 						sendReq.execute(req);
 						remplirListPosts(posts.toString(), true);
 					}
@@ -168,7 +171,7 @@ public class OneTabActivity extends Activity {
 		}
 		
 		// Envoi de la requête
-		SendRequest sendReq = new SendRequest(dataHandler, context);
+		SendRequest sendReq = new SendRequest(dataHandler, context, show_dialogs);
 		sendReq.execute(req);
 	}
 	
@@ -214,5 +217,6 @@ public class OneTabActivity extends Activity {
 	private void getPrefs() {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		this.server_domain = prefs.getString("serverPref", getResources().getString(R.string.url_server_default));
+		this.show_dialogs = prefs.getBoolean("progressPref", getResources().getBoolean(R.bool.show_dialog_default));
 	}
 }

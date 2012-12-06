@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
     <ListPreference android:entries="@array/url_server_display" android:entryValues="@array/url_server_values" android:defaultValue="@string/url_server_default" android:summary="Adresse du serveur distant" android:title="URL Serveur" android:key="serverPref"/>
+    <CheckBoxPreference android:title="Dialogues" android:key="progressPref" android:summary="Afficher des dialogues de progression lors des requêtes" android:defaultValue="@bool/show_dialog_default"/>
     
 
 </PreferenceScreen>

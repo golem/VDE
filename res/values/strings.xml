@@ -25,5 +25,6 @@
     <string name="list_next">>></string>
     <string name="like_text">"Likes : "</string>
     <string name="list_posted">"Posté le : "</string>
+    <bool name="show_dialog_default">true</bool>
 
 </resources>

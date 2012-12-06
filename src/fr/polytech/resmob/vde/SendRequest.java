@@ -33,16 +33,21 @@ public class SendRequest extends AsyncTask<JSONObject, Integer, String> {
 	
 	private final ProgressDialog dialog;
 	
-	public SendRequest(DataHandler dataHandler, Activity context) {
+	public SendRequest(DataHandler dataHandler, Activity context, boolean showDialog) {
 		//this.answer = new String();
 		this.dataHandler = dataHandler;
 		this.httpclient = new DefaultHttpClient();
 		//this.httppost = new HttpPost("http://86.198.34.101/~frefre/test.php");
-		this.dialog = new ProgressDialog(context);
-		// TODO: On pourrait passer ce message en argument par exemple...
-		// (et aussi un booléen pour dire si on veut le progressdialog tout court)
-		this.dialog.setMessage("Requête en cours...");
-		this.dialog.show();
+		
+		// On affiche éventuellement un progressDialog
+		if (showDialog) {
+			this.dialog = new ProgressDialog(context);
+			// TODO: On pourrait passer ce message en argument par exemple...
+			// (et aussi un booléen pour dire si on veut le progressdialog tout court)
+			this.dialog.setMessage("Requête en cours...");
+			this.dialog.show();
+		}
+		else this.dialog = null;
 	}
 
 	@Override
@@ -89,7 +94,8 @@ public class SendRequest extends AsyncTask<JSONObject, Integer, String> {
 	@Override
     protected void onPostExecute(String s) {
 		dataHandler.onDataSuccess(s);
-		this.dialog.dismiss();
+		if (this.dialog != null)
+			this.dialog.dismiss();
     }
 	
 	public static interface DataHandler {
