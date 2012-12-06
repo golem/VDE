@@ -42,6 +42,8 @@ public class OneTabActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tab_list);
 		
+		this.posts = new JSONArray();
+		
 		this.context = this;
 		
 		// Récupération d'une référence sur la ListView
@@ -83,7 +85,7 @@ public class OneTabActivity extends Activity {
 						req.put("domain", server_domain);
 						req.put("id", "like");
 						req.put("id_elem", posts.getJSONObject(position).getString("id"));
-						SendRequest sendReq = new SendRequest(dataHandlerLike, context);
+						SendRequest sendReq = new SendRequest(dataHandlerLike, context, true);
 						sendReq.execute(req);
 						remplirListPosts(posts.toString(), true);
 					}
@@ -168,7 +170,7 @@ public class OneTabActivity extends Activity {
 		}
 		
 		// Envoi de la requête
-		SendRequest sendReq = new SendRequest(dataHandler, context);
+		SendRequest sendReq = new SendRequest(dataHandler, context, true);
 		sendReq.execute(req);
 	}
 	

@@ -84,6 +84,7 @@ public class MainActivity extends Activity {
 				TextView tv = (TextView) findViewById(R.id.tvLastPost);				
 				JSONArray posts;
 				try {
+					if (s == null) return;
 					posts = new JSONArray(s);
 					tv.setText(posts.getJSONObject(0).getString("content"));
 				} catch (JSONException e) {
@@ -143,7 +144,7 @@ public class MainActivity extends Activity {
 		}
 		
 		// Envoi de la requête
-		SendRequest sendReq = new SendRequest(dataHandler, context);
+		SendRequest sendReq = new SendRequest(dataHandler, context, false);
 		sendReq.execute(req);
 	}
 }
