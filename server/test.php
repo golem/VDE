@@ -34,7 +34,8 @@
 				$json = array();
 				$temp_json = array();
 				while($row = $values->fetch_object()) {
-					
+					$row->title = utf8_encode($row->title);
+					$row->content = utf8_encode($row->content);
 					$temp_json = $row;
 					array_push($json, $temp_json);
 				}
@@ -46,7 +47,8 @@
 				$json = array();
 				$temp_json = array();
 				while($row = $values->fetch_object()) {
-					
+					$row->title = utf8_encode($row->title);
+					$row->content = utf8_encode($row->content);
 					$temp_json = $row;
 					array_push($json, $temp_json);
 				}
@@ -58,7 +60,8 @@
 				$json = array();
 				$temp_json = array();
 				while($row = $values->fetch_object()) {
-					
+					$row->title = utf8_encode($row->title);
+					$row->content = utf8_encode($row->content);
 					$temp_json = $row;
 					array_push($json, $temp_json);
 				}
@@ -78,6 +81,7 @@
 	$temp_json = array();
 	while($row = $values->fetch_object()) {
 		
+		$row->content = utf8_encode($row->content);
 		$temp_json = $row;
 		array_push($json, $temp_json);
 	}

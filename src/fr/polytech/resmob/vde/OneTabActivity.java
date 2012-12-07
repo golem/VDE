@@ -108,7 +108,7 @@ public class OneTabActivity extends Activity {
 		
 		this.page = 0;
 		this.prevButton.setEnabled(false);
-		pageTv.setText("Page : " + page);
+		pageTv.setText("Page : " + (page+1));
 		
 		this.prevButton.setOnClickListener(new OnClickListener() {
 			@Override
@@ -120,7 +120,7 @@ public class OneTabActivity extends Activity {
 					prevButton.setEnabled(false);
 				}
 				nextButton.setEnabled(true);
-				pageTv.setText("Page : " + page);
+				pageTv.setText("Page : " + (page+1));
 			}
 		});
 		
@@ -134,7 +134,7 @@ public class OneTabActivity extends Activity {
 					nextButton.setEnabled(false);
 				}
 				prevButton.setEnabled(true);
-				pageTv.setText("Page : " + page);
+				pageTv.setText("Page : " + (page+1));
 			}
 		});
 		
