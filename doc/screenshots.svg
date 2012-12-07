@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="screenshots.svg"
+   inkscape:export-filename="/home/sylvain/resmob/VDE/doc/screenshots.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-75"
+     inkscape:cy="62.857143"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="719"
+     inkscape:window-x="0"
+     inkscape:window-y="21"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <image
+       y="-276.20929"
+       x="-277.14282"
+       id="image2993"
+       xlink:href="file:///home/sylvain/resmob/VDE/doc/Screenshot_2012-12-07-10-41-49.png"
+       height="800"
+       width="480" />
+    <image
+       y="548.07642"
+       x="420"
+       id="image3006"
+       xlink:href="file:///home/sylvain/resmob/VDE/doc/Screenshot_2012-12-07-10-42-01.png"
+       height="800"
+       width="480" />
+    <image
+       y="1393.7908"
+       x="420"
+       id="image3017"
+       xlink:href="file:///home/sylvain/resmob/VDE/doc/Screenshot_2012-12-07-10-42-41.png"
+       height="800"
+       width="480" />
+    <image
+       y="1393.7908"
+       x="-277.14282"
+       id="image3028"
+       xlink:href="file:///home/sylvain/resmob/VDE/doc/Screenshot_2012-12-07-10-42-50.png"
+       height="800"
+       width="480" />
+    <image
+       y="548.07642"
+       x="-277.14282"
+       id="image3039"
+       xlink:href="file:///home/sylvain/resmob/VDE/doc/Screenshot_2012-12-07-10-42-59.png"
+       height="800"
+       width="480" />
+    <image
+       y="-276.20929"
+       x="420"
+       id="image3050"
+       xlink:href="file:///home/sylvain/resmob/VDE/doc/Screenshot_2012-12-07-10-45-02.png"
+       height="800"
+       width="480" />
+  </g>
+</svg>
